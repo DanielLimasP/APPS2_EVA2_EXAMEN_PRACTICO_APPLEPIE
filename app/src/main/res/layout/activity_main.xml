@@ -11,6 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:onClick="launchUsersActivity"
         android:text="Users" />
 
     <Button
@@ -18,6 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:onClick="launchFilesActivity"
         android:text="Files" />
 
     <Button
@@ -25,5 +27,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:onClick="closeApp"
         android:text="Close" />
 </LinearLayout>
