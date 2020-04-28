@@ -113,6 +113,7 @@
             android:layout_weight="1"
             android:background="@color/colorAccent"
             android:text="Delete"
+            android:onClick="deleteUserFromList"
             android:textColor="@android:color/white" />
     </LinearLayout>
 

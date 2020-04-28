@@ -17,7 +17,6 @@ public class UsersActivity extends AppCompatActivity {
     Intent usersListActivity;
     final int CODE = 1000;
     DatabaseHelper myDB;
-    SQLiteDatabase db;
 
     EditText edtLastname, edtName, edtUsername, edtPassword;
     String sLastname, sName, sUsername, sPassword;
@@ -48,7 +47,7 @@ public class UsersActivity extends AppCompatActivity {
             edtUsername.setText("");
             edtPassword.setText("");
         }else{
-            Toast.makeText(UsersActivity.this, "You must type something into every textfield", Toast.LENGTH_LONG).show();
+            Toast.makeText(UsersActivity.this, "You must type something into each and every textfield", Toast.LENGTH_LONG).show();
         }
     }
 
@@ -88,6 +87,17 @@ public class UsersActivity extends AppCompatActivity {
                 break;
             default:
         }
+    }
+
+    public void deleteUserFromList(View view){
+        int deleted = myDB.deleteUser(sLastname);
+
+        if(deleted > 0){
+            Toast.makeText(this, "Entry deleted succesfully", Toast.LENGTH_LONG).show();
+        }else{
+            Toast.makeText(this, "Something went wrong", Toast.LENGTH_LONG).show();
+        }
+
     }
 
 }
