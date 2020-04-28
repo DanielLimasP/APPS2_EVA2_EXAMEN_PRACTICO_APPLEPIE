@@ -89,20 +89,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return affectedRow;
     }
 
-    public Cursor queryData(String lastname){
+    // Here we query data using the username
+    public Cursor queryData(String username){
         SQLiteDatabase db = this.getWritableDatabase();
         String[] columns = {"*"};
-        String[] conditionArgs = {lastname};
+        String[] conditionArgs = {username};
         Cursor c = db.query (TABLE_NAME1,
                 columns,
-                "LASTNAME = ?",
+                "USERNAME = ?",
                 conditionArgs,
                 "",
                 "",
                 ""
         );
-
         return c;
     }
-
 }

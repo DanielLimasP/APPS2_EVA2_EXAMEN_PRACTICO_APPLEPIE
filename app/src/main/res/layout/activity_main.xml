@@ -51,7 +51,7 @@
             android:layout_margin="15dp"
             android:layout_weight="1"
             android:background="@color/colorAccent"
-            android:onClick="launchFilesActivity"
+            android:onClick="launchFilesLoginActivity"
             android:text="Files"
             android:textColor="@android:color/white" />
 

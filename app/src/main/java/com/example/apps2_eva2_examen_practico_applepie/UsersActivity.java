@@ -5,11 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class UsersActivity extends AppCompatActivity {
@@ -30,7 +28,7 @@ public class UsersActivity extends AppCompatActivity {
 
         edtLastname = findViewById(R.id.edtLastName);
         edtName = findViewById(R.id.edtName);
-        edtUsername = findViewById(R.id.edtUsername);
+        edtUsername = findViewById(R.id.edtUsernameLogin);
         edtPassword = findViewById(R.id.edtPassword);
     }
 

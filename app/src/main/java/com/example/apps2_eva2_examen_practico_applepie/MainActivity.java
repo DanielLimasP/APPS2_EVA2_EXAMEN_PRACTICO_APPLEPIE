@@ -8,7 +8,7 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
-    Intent usersIntent, filesIntent;
+    Intent usersIntent, filesIntent, loginIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,9 +21,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(usersIntent);
     }
 
-    public void launchFilesActivity(View view){
-        filesIntent = new Intent(this, FilesActivity.class);
-        startActivity(filesIntent);
+    public void launchFilesLoginActivity(View view){
+        loginIntent = new Intent(this, FilesLogin.class);
+        startActivity(loginIntent);
     }
 
     public void closeApp(View view){

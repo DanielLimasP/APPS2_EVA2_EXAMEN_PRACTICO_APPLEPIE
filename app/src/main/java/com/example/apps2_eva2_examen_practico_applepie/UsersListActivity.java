@@ -17,12 +17,9 @@ import java.util.ArrayList;
 public class UsersListActivity extends AppCompatActivity implements ListView.OnItemClickListener {
 
     DatabaseHelper myDB;
-    SQLiteDatabase db;
     ListView usersList;
     UserAdapter userAdapter;
-    User[] usersArray = new User[100];
     ArrayList<User> userArraysList = new ArrayList<>();
-    int cont = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +49,6 @@ public class UsersListActivity extends AppCompatActivity implements ListView.OnI
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         Bundle bundle = new Bundle();
         Intent inDatos = new Intent();
-        int selection = 0;
 
         bundle.putString("lastname", userArraysList.get(i).getLastname());
         bundle.putString("name", userArraysList.get(i).getName());
