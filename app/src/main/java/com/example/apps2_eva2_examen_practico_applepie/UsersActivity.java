@@ -97,7 +97,21 @@ public class UsersActivity extends AppCompatActivity {
         }else{
             Toast.makeText(this, "Something went wrong", Toast.LENGTH_LONG).show();
         }
+    }
 
+    public void updateUserFromList(View view){
+        int updated = myDB.updateUser(
+                sLastname,
+                edtLastname.getText().toString(),
+                edtName.getText().toString(),
+                edtUsername.getText().toString(),
+                edtPassword.getText().toString());
+
+        if(updated > 0){
+            Toast.makeText(this, "Entry updated succesfully", Toast.LENGTH_LONG).show();
+        }else{
+            Toast.makeText(this, "Something went wrong", Toast.LENGTH_LONG).show();
+        }
     }
 
 }

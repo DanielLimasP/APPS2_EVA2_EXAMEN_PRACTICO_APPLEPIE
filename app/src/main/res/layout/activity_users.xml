@@ -92,6 +92,7 @@
             android:layout_weight="1"
             android:background="@color/colorAccent"
             android:text="Save"
+            android:onClick="updateUserFromList"
             android:textColor="@android:color/white" />
 
         <Button
