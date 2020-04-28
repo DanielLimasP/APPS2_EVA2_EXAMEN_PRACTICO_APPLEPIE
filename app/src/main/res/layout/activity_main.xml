@@ -4,29 +4,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     tools:context=".MainActivity">
 
     <Button
         android:id="@+id/btnUsers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="1dp"
         android:layout_weight="1"
+        android:background="@color/colorAccent"
         android:onClick="launchUsersActivity"
-        android:text="Users" />
+        android:text="Users"
+        android:textColor="@android:color/white" />
 
     <Button
         android:id="@+id/btnFiles"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="1dp"
         android:layout_weight="1"
+        android:background="@color/colorAccent"
         android:onClick="launchFilesActivity"
-        android:text="Files" />
+        android:text="Files"
+        android:textColor="@android:color/white" />
 
     <Button
         android:id="@+id/btnClose"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="1dp"
         android:layout_weight="1"
+        android:background="@color/colorAccent"
         android:onClick="closeApp"
-        android:text="Close" />
+        android:text="Close"
+        android:textColor="@android:color/white" />
 </LinearLayout>

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     android:orientation="vertical"
     tools:context=".UsersActivity">
 
@@ -20,7 +21,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Last name"
         android:inputType="textPersonName" />
 
     <TextView
@@ -36,7 +36,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Name"
         android:inputType="textPersonName" />
 
     <TextView
@@ -52,7 +51,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Username"
         android:inputType="textPersonName" />
 
     <TextView
@@ -68,7 +66,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Password"
         android:inputType="textPassword" />
 
     <LinearLayout
@@ -80,31 +77,43 @@
             android:id="@+id/btnNew"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="1dp"
             android:layout_weight="1"
+            android:background="@color/colorAccent"
             android:onClick="insertOne"
-            android:text="New" />
+            android:text="New"
+            android:textColor="@android:color/white" />
 
         <Button
             android:id="@+id/btnSave"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="1dp"
             android:layout_weight="1"
-            android:text="Save" />
+            android:background="@color/colorAccent"
+            android:text="Save"
+            android:textColor="@android:color/white" />
 
         <Button
             android:id="@+id/btnList"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="1dp"
             android:layout_weight="1"
+            android:background="@color/colorAccent"
             android:onClick="listUsers"
-            android:text="List" />
+            android:text="List"
+            android:textColor="@android:color/white" />
 
         <Button
             android:id="@+id/btnDelete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="1dp"
             android:layout_weight="1"
-            android:text="Delete" />
+            android:background="@color/colorAccent"
+            android:text="Delete"
+            android:textColor="@android:color/white" />
     </LinearLayout>
 
 </LinearLayout>

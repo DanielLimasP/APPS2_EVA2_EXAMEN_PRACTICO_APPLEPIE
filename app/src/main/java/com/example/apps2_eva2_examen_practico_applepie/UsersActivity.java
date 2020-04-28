@@ -1,7 +1,9 @@
 package com.example.apps2_eva2_examen_practico_applepie;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -18,6 +20,7 @@ public class UsersActivity extends AppCompatActivity {
     SQLiteDatabase db;
 
     EditText edtLastname, edtName, edtUsername, edtPassword;
+    String sLastname, sName, sUsername, sPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +64,29 @@ public class UsersActivity extends AppCompatActivity {
             Toast.makeText(this, "Entry added succesfully", Toast.LENGTH_LONG).show();
         }else{
             Toast.makeText(this, "Something went wrong", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch(requestCode){
+            case CODE:
+                if(resultCode == Activity.RESULT_OK){
+                    sLastname = data.getStringExtra("lastname");
+                    sName = data.getStringExtra("name");
+                    sUsername = data.getStringExtra("username");
+                    sPassword = data.getStringExtra("password");
+
+                    edtLastname.setText(data.getStringExtra("lastname"));
+                    edtName.setText(data.getStringExtra("name"));
+                    edtUsername.setText(data.getStringExtra("username"));
+                    edtPassword.setText(data.getStringExtra("password"));
+                }else{
+                    Toast.makeText(this, "Something went wrong", Toast.LENGTH_SHORT).show();
+                }
+                break;
+            default:
         }
     }
 
