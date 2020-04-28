@@ -5,38 +5,66 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/btnUsers"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="1dp"
+    <TextView
+        android:id="@+id/txtTitle"
+        android:layout_width="match_parent"
+        android:layout_height="288dp"
+        android:layout_margin="10dp"
         android:layout_weight="1"
-        android:background="@color/colorAccent"
-        android:onClick="launchUsersActivity"
-        android:text="Users"
-        android:textColor="@android:color/white" />
+        android:gravity="center"
+        android:text="Notes"
+        android:textColor="@color/colorAccent"
+        android:textSize="36sp" />
 
-    <Button
-        android:id="@+id/btnFiles"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="1dp"
+    <ImageView
+        android:id="@+id/imgTitle"
+        android:layout_width="match_parent"
+        android:layout_height="355dp"
         android:layout_weight="1"
-        android:background="@color/colorAccent"
-        android:onClick="launchFilesActivity"
-        android:text="Files"
-        android:textColor="@android:color/white" />
+        app:srcCompat="@drawable/book" />
 
-    <Button
-        android:id="@+id/btnClose"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="1dp"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_weight="1"
-        android:background="@color/colorAccent"
-        android:onClick="closeApp"
-        android:text="Close"
-        android:textColor="@android:color/white" />
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btnUsers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            android:onClick="launchUsersActivity"
+            android:text="Users"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/btnFiles"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            android:onClick="launchFilesActivity"
+            android:text="Files"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/btnClose"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            android:onClick="closeApp"
+            android:text="Close"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+
 </LinearLayout>

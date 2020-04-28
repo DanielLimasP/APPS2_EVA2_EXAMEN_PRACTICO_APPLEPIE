@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
+    android:gravity="center"
     android:orientation="vertical"
     tools:context=".UsersActivity">
 
@@ -91,8 +92,8 @@
             android:layout_margin="1dp"
             android:layout_weight="1"
             android:background="@color/colorAccent"
-            android:text="Save"
             android:onClick="updateUserFromList"
+            android:text="Save"
             android:textColor="@android:color/white" />
 
         <Button
@@ -113,8 +114,8 @@
             android:layout_margin="1dp"
             android:layout_weight="1"
             android:background="@color/colorAccent"
-            android:text="Delete"
             android:onClick="deleteUserFromList"
+            android:text="Delete"
             android:textColor="@android:color/white" />
     </LinearLayout>
 
