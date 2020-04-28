@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Last Name:"
-        android:textColor="@android:color/background_dark"
+        android:textColor="@android:color/holo_blue_dark"
         android:textSize="24sp" />
 
     <EditText
@@ -28,7 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Name:"
-        android:textColor="@android:color/background_dark"
+        android:textColor="@android:color/holo_green_dark"
         android:textSize="24sp" />
 
     <EditText
@@ -44,7 +44,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Username:"
-        android:textColor="@android:color/background_dark"
+        android:textColor="@android:color/holo_orange_dark"
         android:textSize="24sp" />
 
     <EditText
@@ -60,7 +60,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Password:"
-        android:textColor="@android:color/background_dark"
+        android:textColor="@android:color/holo_red_light"
         android:textSize="24sp" />
 
     <EditText
