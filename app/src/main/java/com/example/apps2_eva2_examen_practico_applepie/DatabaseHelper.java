@@ -21,8 +21,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     // Files table and fields
     public static final String TABLE_NAME2 = "Files";
     public static final String FC1 = "ID";
-    public static final String FC2 = "NAME";
-    public static final String FC3 = "USER";
+    public static final String FC2 = "USERNAME";
+    public static final String FC3 = "FILENAME";
     public static final String FC4 = "PATH";
 
     public DatabaseHelper(Context context) {
@@ -32,18 +32,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String createTableUsers = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME1 + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                " LASTNAME TEXT, NAME TEXT, USERNAME TEXT, PASSWORD text)";
+                " LASTNAME TEXT, NAME TEXT, USERNAME TEXT, PASSWORD TEXT)";
         db.execSQL(createTableUsers);
 
-        String createTableFiles = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME1 + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                " LASTNAME TEXT, NAME TEXT, USERNAME TEXT, PASSWORD text)";
+        String createTableFiles = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME2 + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                " USERNAME TEXT, FILENAME TEXT)";
         db.execSQL(createTableFiles);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME1);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME1);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME2);
         onCreate(db);
     }
 
@@ -87,6 +87,44 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String whereArgs[] = {lastname};
         int affectedRow = db.delete(TABLE_NAME1, "LASTNAME = ?", whereArgs);
         return affectedRow;
+    }
+
+    public boolean insertFile(String userName, String fileName){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(FC2, userName);
+        contentValues.put(FC3, fileName);
+
+        long result = db.insert(TABLE_NAME2, null, contentValues);
+
+        if (result == -1) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public int deleteFile(String userName, String fileName){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String whereArgs[] = {userName, fileName};
+        int affectedRow = db.delete(TABLE_NAME2, "USERNAME = ? AND FILENAME = ?", whereArgs);
+        return affectedRow;
+    }
+
+        //Pulls all the files related to the username
+    public Cursor queryFileName(String username){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String[] columns = {"*"};
+        String[] conditionArgs = {username};
+        Cursor c = db.query (TABLE_NAME2,
+                columns,
+                "USERNAME = ?",
+                conditionArgs,
+                "",
+                "",
+                ""
+        );
+        return c;
     }
 
     // Here we query data using the username
