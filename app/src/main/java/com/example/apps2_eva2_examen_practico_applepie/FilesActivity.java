@@ -6,6 +6,9 @@ import androidx.core.app.ActivityCompat;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.SQLException;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
 import android.os.Bundle;
 import android.os.Environment;
 import android.transition.ArcMotion;
@@ -31,6 +34,8 @@ public class FilesActivity extends AppCompatActivity {
     final int PERMISO_ESCRITURA = 1000;
     String pathSD;
     Intent openFilesIntent;
+    DatabaseHelper myDb;
+    SQLiteDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +43,8 @@ public class FilesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_files_activity);
         editText = findViewById(R.id.edTxtText);
         editFileName = findViewById(R.id.edTxtFileName);
+        //Make DatabaseHelper Instance
+        myDb = new DatabaseHelper(this);
         //Gets the username from the previous activity
         Intent intent = getIntent();
         userReceived = intent.getExtras().getString("user");
@@ -73,8 +80,19 @@ public class FilesActivity extends AppCompatActivity {
                 Toast.makeText(this, "Fill all the parameters", Toast.LENGTH_SHORT).show();
             }
 
+                //Agregamos el nombre del archivo con su respectivo nombre de usuario en la base de datos
+            //Esto sirve para tener un enlace entre el usuario y sus archivos, tenerlos en filas
+            String uName = getIntent().getExtras().get("user").toString();
+            boolean insertar = myDb.insertFile(uName, editFileName.getText().toString());
+            if(insertar == true){
+                System.out.println("Added to DB");
+                Toast.makeText(this, "Added to DB", Toast.LENGTH_LONG).show();
+            }else{
+                System.out.println("Could not add to DB");
+                Toast.makeText(this, "Could not add to DB", Toast.LENGTH_LONG).show();
+            }
         } catch (Exception e) {
-
+                e.printStackTrace();
         }
 
     }
@@ -115,6 +133,8 @@ public class FilesActivity extends AppCompatActivity {
     //OnClick for Opening the list with all the files of the current user
     public void openFiles(View view) {
         openFilesIntent = new Intent(this, FileList.class);
+        String uName = getIntent().getExtras().get("user").toString();
+        openFilesIntent.putExtra("username", uName);
         startActivityForResult(openFilesIntent, 1034);
     }
 
