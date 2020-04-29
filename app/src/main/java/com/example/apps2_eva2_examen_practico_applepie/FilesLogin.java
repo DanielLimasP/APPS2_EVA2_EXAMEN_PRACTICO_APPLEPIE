@@ -25,19 +25,19 @@ public class FilesLogin extends AppCompatActivity {
         //fastQuery();
     }
 
-    public void closeLoginActivity(View view){
+    public void closeLoginActivity(View view) {
         finish();
     }
 
-    public void fastQuery(){
+    public void fastQuery() {
         Cursor data = myDB.queryData("McFer");
         while (data.moveToNext()) {
             String qPassword = data.getString(4);
-            Toast.makeText(this, qPassword ,Toast.LENGTH_LONG).show();
+            Toast.makeText(this, qPassword, Toast.LENGTH_LONG).show();
         }
     }
 
-    public void login(View view){
+    public void login(View view) {
         String username = edtUsernameLogin.getText().toString();
         String password = edtPassLogin.getText().toString();
         String qPassword = "";
@@ -45,14 +45,15 @@ public class FilesLogin extends AppCompatActivity {
         while (data.moveToNext()) {
             qPassword = data.getString(4);
         }
-        if(data.getCount() == 0){
-            Toast.makeText(this, "That username doesn't exist in the DB",Toast.LENGTH_LONG).show();
-        }else{
-            if(password.equals(qPassword)){
+        if (data.getCount() == 0) {
+            Toast.makeText(this, "That username doesn't exist in the DB", Toast.LENGTH_LONG).show();
+        } else {
+            if (password.equals(qPassword)) {
                 filesIntent = new Intent(this, FilesActivity.class);
+                filesIntent.putExtra("user", username);
                 startActivity(filesIntent);
-            }else{
-                Toast.makeText(this, "Wrong password",Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(this, "Wrong password", Toast.LENGTH_LONG).show();
             }
         }
     }
